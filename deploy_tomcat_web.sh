@@ -40,8 +40,8 @@ sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/config/* ${TOMCAT_PATH}/configuration
 sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/war/*.war ${TOMCAT_PATH}/deployments/
 
 # Change permissions
-sudo chown -R jboss. ${TOMCAT_PATH}/deployments/*
-sudo chown -R jboss. ${TOMCAT_PATH}/configuration/*
+sudo chown -R tomcat. ${TOMCAT_PATH}/deployments/*
+sudo chown -R tomcat. ${TOMCAT_PATH}/configuration/*
 
 # Start TOMCAT7
 sudo service tomcat start
