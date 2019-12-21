@@ -11,7 +11,7 @@ export ARTIFACT_NAME='web_artifact.tar.gz'
 
 # Remove tmp directory
 if [ -d ${ARTIFACT_TMP_PATH} ]; then
-  rm -rf ${ARTIFACT_TMP_PATH}
+rm -rf ${ARTIFACT_TMP_PATH}
 fi
 
 # Copy artifact to tmp dir and extract
@@ -19,12 +19,12 @@ mkdir -p ${ARTIFACT_TMP_PATH}
 cp ${ARTIFACT_NAME} ${ARTIFACT_TMP_PATH}
 cd ${ARTIFACT_TMP_PATH}
 echo "Extracting files:"
-tar xvzf ${ARTIFACT_NAME}
+ar xvzf ${ARTIFACT_NAME}
 
 # Remove env from config files
 for FILENAME in ${ARTIFACT_TMP_PATH}/web_artifact/config/*; do
-  TRIMMED_FILENAME=$(echo ${FILENAME} | cut -d. -f1,2)
-  mv ${FILENAME} ${TRIMMED_FILENAME}
+TRIMMED_FILENAME=$(echo ${FILENAME} | cut -d. -f1,2)
+mv ${FILENAME} ${TRIMMED_FILENAME}
 done
 
 # Stop apache27
