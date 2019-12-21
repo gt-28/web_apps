@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Install Tomcat
-echo "Installing tomcat"
-sudo yum install tomcat
+# Install apache2
+echo "Installing apache2"
+sudo apt install apache2
 
 # Setup variables
-export TOMCAT_PATH='/etc/tomcat/'
+export apache2_PATH='/etc/apache2/'
 export ARTIFACT_TMP_PATH='/home/jenkins/tmp_web_artifact'
 export ARTIFACT_NAME='web_artifact.tar.gz'
 
@@ -27,21 +27,21 @@ for FILENAME in ${ARTIFACT_TMP_PATH}/web_artifact/config/*; do
   mv ${FILENAME} ${TRIMMED_FILENAME}
 done
 
-# Stop TOMCAT7
-echo "Stopping TOMCAT"
-sudo service tomcat stop
+# Stop apache27
+echo "Stopping apache2"
+sudo service apache2 stop
 
 # Delete any existing deployments
 echo "Removing previous deployments"
-sudo rm -rf ${TOMCAT_PATH}/*
+sudo rm -rf ${apache2_PATH}/*
 
 # Copy new war file and config to deployments directory
-sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/config/* ${TOMCAT_PATH}/configuration/
-sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/war/*.war ${TOMCAT_PATH}/deployments/
+sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/config/* ${apache2_PATH}/configuration/
+sudo \cp ${ARTIFACT_TMP_PATH}/web_artifact/war/*.war ${apache2_PATH}/deployments/
 
 # Change permissions
-sudo chown -R tomcat. ${TOMCAT_PATH}/deployments/*
-sudo chown -R tomcat. ${TOMCAT_PATH}/configuration/*
+sudo chown -R apache2. ${apache2_PATH}/deployments/*
+sudo chown -R apache2. ${apache2_PATH}/configuration/*
 
-# Start TOMCAT7
-sudo service tomcat start
+# Start apache27
+sudo service apache2 start
