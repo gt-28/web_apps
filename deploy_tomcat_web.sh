@@ -5,7 +5,7 @@ echo "Installing apache2"
 sudo apt install apache2
 
 # Setup variables
-export apache2_PATH='/etc/apache2/'
+export apache2_PATH='/var/www/html/'
 export ARTIFACT_TMP_PATH='/home/jenkins/tmp_web_artifact'
 export ARTIFACT_NAME='web_artifact.tar.gz'
 
