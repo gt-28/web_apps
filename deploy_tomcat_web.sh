@@ -1,8 +1,4 @@
 #!/bin/bash
-sudo apt-get install dos2unix
-# Install apache2
-echo "Installing apache2"
-sudo apt install apache2
 
 # Setup variables
 export apache2_PATH='/var/www/html/'
