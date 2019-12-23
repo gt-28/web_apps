@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Install Tomcat
-echo "Installing tomcat"
-sudo yum install tomcat -y
-
 # Setup variables
 export TOMCAT_PATH='/etc/tomcat/'
 export ARTIFACT_TMP_PATH='/home/jenkins/tmp_web_artifact'
